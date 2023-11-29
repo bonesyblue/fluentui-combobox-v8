@@ -1,15 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { ThemeProvider, initializeIcons } from "@fluentui/react";
+import React from "react";
+import ReactDOM from "react-dom";
+import ReactClientDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+// Initialize icons in case this example uses them
+initializeIcons();
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+const root = ReactClientDOM.createRoot(
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <div>
+        React version: <b>{React.version}</b>
+      </div>
+      <div>
+        ReactDOM version: <b>{ReactDOM.version}</b>
+      </div>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
